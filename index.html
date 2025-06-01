@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Exam Score Prediction System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>Student Exam Score Prediction System</h1>
+            <p class="subtitle">Utilizing machine learning to predict student performance and provide insights for educational improvement</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="predict">
+                <span class="tab-icon">📊</span>
+                Predict Performance
+            </button>
+            <button class="tab-btn" data-tab="algorithms">
+                <span class="tab-icon">🔬</span>
+                Algorithm Comparison
+            </button>
+            <button class="tab-btn" data-tab="factors">
+                <span class="tab-icon">📈</span>
+                Factor Analysis
+            </button>
+            <button class="tab-btn" data-tab="about">
+                <span class="tab-icon">ℹ️</span>
+                About Project
+            </button>
+        </nav>
+
+        <!-- Tab Content -->
+        <main class="tab-content">
+            <!-- Predict Performance Tab -->
+            <div class="tab-panel active" id="predict">
+                <div class="predict-container">
+                    <div class="form-section">
+                        <h2>Student Information</h2>
+                        <form id="prediction-form" class="prediction-form">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Study Hours per Week: <span id="study-hours-value">5</span></label>
+                                    <input type="range" id="study-hours" min="1" max="10" value="5" class="slider">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="math-grade">Previous Math Grade (0-20)</label>
+                                    <input type="number" id="math-grade" min="0" max="20" value="15" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="portuguese-grade">Previous Portuguese Grade (0-20)</label>
+                                    <input type="number" id="portuguese-grade" min="0" max="20" value="14" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="failures">Number of Past Failures</label>
+                                    <select id="failures" class="form-control">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Family Relationship Quality: <span id="family-value">3</span></label>
+                                    <input type="range" id="family-relationship" min="1" max="5" value="3" class="slider">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Free Time: <span id="freetime-value">3</span></label>
+                                    <input type="range" id="freetime" min="1" max="5" value="3" class="slider">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="absences">Absences (0-50)</label>
+                                    <input type="number" id="absences" min="0" max="50" value="3" class="form-control">
+                                </div>
+
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="activities" checked>
+                                        <span class="checkmark"></span>
+                                        Extra Educational Activities
+                                    </label>
+                                </div>
+
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="internet" checked>
+                                        <span class="checkmark"></span>
+                                        Internet Access at Home
+                                    </label>
+                                </div>
+
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="higher-ed" checked>
+                                        <span class="checkmark"></span>
+                                        Wants Higher Education
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn--primary btn--lg predict-btn">
+                                <span class="btn-icon">🎯</span>
+                                Predict Score
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="results-section">
+                        <div id="prediction-results" class="results-card hidden">
+                            <h3>Prediction Results</h3>
+                            <div class="score-display">
+                                <span class="score-label">Predicted Exam Score</span>
+                                <span id="predicted-score" class="score-value">--</span>
+                                <span class="score-max">/20</span>
+                            </div>
+                            <div class="confidence-display">
+                                <span class="confidence-label">Confidence Level</span>
+                                <div class="confidence-bar">
+                                    <div id="confidence-fill" class="confidence-fill"></div>
+                                </div>
+                                <span id="confidence-value" class="confidence-value">--</span>
+                            </div>
+                            <div id="recommendation" class="recommendation"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Algorithm Comparison Tab -->
+            <div class="tab-panel" id="algorithms">
+                <h2>Algorithm Performance Comparison</h2>
+                <div class="algorithm-section">
+                    <div class="chart-container">
+                        <img src="https://pplx-res.cloudinary.com/image/upload/v1748766099/pplx_code_interpreter/dd866a8d_wolbqo.jpg" alt="Algorithm Accuracy Comparison" class="chart-image">
+                    </div>
+                    <div class="algorithm-table-container">
+                        <table class="algorithm-table">
+                            <thead>
+                                <tr>
+                                    <th>Algorithm</th>
+                                    <th>Accuracy (%)</th>
+                                    <th>R² Score</th>
+                                    <th>MAE</th>
+                                    <th>RMSE</th>
+                                </tr>
+                            </thead>
+                            <tbody id="algorithm-table-body">
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="algorithm-explanations">
+                        <h3>Algorithm Explanations</h3>
+                        <div class="explanation-grid">
+                            <div class="explanation-card">
+                                <h4>Linear Regression</h4>
+                                <p>Simple linear relationship modeling between features and target variable. Best for interpretable results.</p>
+                            </div>
+                            <div class="explanation-card">
+                                <h4>Ridge Regression</h4>
+                                <p>Linear regression with L2 regularization to prevent overfitting and improve generalization.</p>
+                            </div>
+                            <div class="explanation-card">
+                                <h4>Random Forest</h4>
+                                <p>Ensemble method using multiple decision trees to reduce overfitting and improve accuracy.</p>
+                            </div>
+                            <div class="explanation-card">
+                                <h4>Support Vector Regression</h4>
+                                <p>Uses support vector machines for regression, effective with high-dimensional data.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Factor Analysis Tab -->
+            <div class="tab-panel" id="factors">
+                <h2>Factors Affecting Student Performance</h2>
+                <div class="factors-section">
+                    <div class="chart-container">
+                        <img src="https://pplx-res.cloudinary.com/image/upload/v1748766149/pplx_code_interpreter/37f57430_kqqcrt.jpg" alt="Student Performance Correlation Chart" class="chart-image">
+                    </div>
+                    <div class="factors-grid">
+                        <div class="factor-category">
+                            <h3>📚 Academic Factors</h3>
+                            <div id="academic-factors" class="factor-list">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="factor-category">
+                            <h3>👨‍👩‍👧‍👦 Family Factors</h3>
+                            <div id="family-factors" class="factor-list">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="factor-category">
+                            <h3>🧠 Individual Factors</h3>
+                            <div id="individual-factors" class="factor-list">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="factor-category">
+                            <h3>🏛️ Social Factors</h3>
+                            <div id="social-factors" class="factor-list">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="insights-section">
+                        <h3>Key Insights & Recommendations</h3>
+                        <div class="insights-grid">
+                            <div class="insight-card">
+                                <h4>🎯 High Impact Factors</h4>
+                                <p>Previous grades and study hours show the strongest correlation with exam performance. Focus on consistent study habits and academic foundation building.</p>
+                            </div>
+                            <div class="insight-card">
+                                <h4>📊 Medium Impact Factors</h4>
+                                <p>Family support and socioeconomic factors play important roles. Consider providing additional resources for students with limited family support.</p>
+                            </div>
+                            <div class="insight-card">
+                                <h4>💡 Intervention Strategies</h4>
+                                <p>Early identification of at-risk students through attendance monitoring and previous performance analysis can enable timely interventions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Project Tab -->
+            <div class="tab-panel" id="about">
+                <div class="about-section">
+                    <h2>About the Student Performance Prediction Project</h2>
+                    
+                    <div class="about-grid">
+                        <div class="about-card">
+                            <h3>🎯 Project Objectives</h3>
+                            <ul>
+                                <li>Predict student exam scores using machine learning techniques</li>
+                                <li>Identify key factors influencing academic performance</li>
+                                <li>Provide insights for educational interventions</li>
+                                <li>Support educators in identifying at-risk students</li>
+                            </ul>
+                        </div>
+
+                        <div class="about-card">
+                            <h3>📊 Dataset Information</h3>
+                            <p><strong>Source:</strong> Portuguese Student Performance Dataset</p>
+                            <p><strong>Features:</strong> Study hours, previous grades, family background, attendance, and more</p>
+                            <p><strong>Target:</strong> Final exam scores (0-20 scale)</p>
+                            <p><strong>Students:</strong> Portuguese secondary school students</p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3>🔬 Methodology</h3>
+                            <ol>
+                                <li><strong>Data Collection:</strong> Gathered student academic and demographic data</li>
+                                <li><strong>Feature Engineering:</strong> Selected relevant predictive features</li>
+                                <li><strong>Model Training:</strong> Tested multiple regression algorithms</li>
+                                <li><strong>Evaluation:</strong> Compared models using accuracy, R², MAE, and RMSE</li>
+                                <li><strong>Deployment:</strong> Created interactive web application</li>
+                            </ol>
+                        </div>
+
+                        <div class="about-card">
+                            <h3>🎓 Educational Applications</h3>
+                            <ul>
+                                <li><strong>Early Warning System:</strong> Identify students at risk of poor performance</li>
+                                <li><strong>Resource Allocation:</strong> Target support where it's needed most</li>
+                                <li><strong>Curriculum Planning:</strong> Understand which factors drive success</li>
+                                <li><strong>Student Counseling:</strong> Provide personalized guidance</li>
+                            </ul>
+                        </div>
+
+                        <div class="about-card">
+                            <h3>📈 Future Improvements</h3>
+                            <ul>
+                                <li>Integration with real-time student data systems</li>
+                                <li>Addition of behavioral and emotional factors</li>
+                                <li>Development of intervention recommendation system</li>
+                                <li>Expansion to different educational contexts</li>
+                            </ul>
+                        </div>
+
+                        <div class="about-card">
+                            <h3>⚖️ Ethical Considerations</h3>
+                            <p>This system is designed to support, not replace, human judgment in education. Predictions should be used as one tool among many to help students succeed. Privacy and fairness are paramount in any implementation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

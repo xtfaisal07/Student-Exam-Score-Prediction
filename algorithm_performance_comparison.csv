@@ -1,0 +1,9 @@
+Algorithm,Accuracy_Mean,R2_Score,MAE,RMSE,Study_Reference
+Linear Regression,88.73,0.85,6.8,8.9,Study 9
+Ridge Regression,88.0,0.86,6.5,8.7,Study 12
+Random Forest,85.5,0.75,7.2,9.8,Study 16
+Support Vector Regression (SVR),86.0,0.9,6.02,8.59,Study 19
+XGBoost,82.4,0.73,7.5,10.2,Study 13
+AdaBoost,75.0,0.69,8.1,11.5,Study 19
+Decision Tree,68.13,0.66,9.5,12.8,Study 9
+K-Nearest Neighbors,78.15,0.72,8.8,11.2,Study 12

@@ -1,0 +1,13 @@
+Factor,Impact_Level,Correlation_Strength,Research_Evidence,Category
+Study Hours,High,0.75,Strong,Academic
+"Previous Grades (G1, G2)",Very High,0.89,Very Strong,Academic
+Attendance Rate,High,0.68,Strong,Academic
+Parental Education,Medium,0.45,Moderate,Family
+Family Support,Medium,0.52,Moderate,Family
+Test Preparation,Medium,0.38,Moderate,Academic
+Socioeconomic Status,High,0.61,Strong,Social
+Gender,Low,0.23,Weak,Demographic
+Age,Low,0.15,Weak,Demographic
+School Quality,Medium,0.44,Moderate,School
+Motivation Level,High,0.71,Strong,Individual
+Mental Health,Medium,0.49,Moderate,Individual
